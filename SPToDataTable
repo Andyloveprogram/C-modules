@@ -1,3 +1,5 @@
+#Syntax highlighted code block
+
 SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Carlsberg_K2WorkflowConnectionString"].ConnectionString);
 
             SqlCommand cmd = new SqlCommand("sp_GetPAReportSearchByCondition", conn);
@@ -16,5 +18,5 @@ conn.Open();
                 string item = dt.Rows[i][5].ToString();
                 //do something
                 
-                }
+            }
                 
