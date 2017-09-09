@@ -1,0 +1,20 @@
+SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Carlsberg_K2WorkflowConnectionString"].ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("sp_GetPAReportSearchByCondition", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("@UserAccount", SqlDbType.NVarChar, 50).Value = User.Identity.Name;
+
+conn.Open();
+            DataTable dt = new DataTable();
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string item = dt.Rows[i][5].ToString();
+                //do something
+                
+                }
+                
